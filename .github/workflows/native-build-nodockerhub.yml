@@ -51,7 +51,7 @@ jobs:
       - name: Set up GraalVM
         uses: graalvm/setup-graalvm@v1
         with:
-          java-version: '21'
+          java-version: '24'
           distribution: 'graalvm-community'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -95,7 +95,7 @@ jobs:
         id: setup-graalvm
         uses: graalvm/setup-graalvm@v1
         with:
-          java-version: '21'
+          java-version: '24'
           distribution: 'graalvm-community'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -124,10 +124,6 @@ jobs:
         shell: cmd
         run: |
           .\mvnw.cmd -Pnative native:compile
-      - name: Build Windows native image4
-        shell: cmd
-        run: |
-          ls target/
 
       - name: Upload Windows native binary to Release
         uses: softprops/action-gh-release@v1
